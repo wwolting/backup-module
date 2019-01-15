@@ -1,0 +1,17 @@
+---
+# name: "Definieer variabelen obv OS"
+- name: "Install the RedHat repository"
+  include_vars: "vars/RedHat.yml"
+  when:
+    - ansible_os_family == "RedHat"
+
+- name: "Install the Centos repository"
+  include_vars: "vars/CentOS.yml"
+  when:
+    - ansible_os_family == "Centos"
+
+#- name: "copy kernel module from reposerver"
+- name: kopieer module naar /lib/modules/r1soft/
+  get_url:
+    url: http://repo.r1soft.com/modules/{{ module_path }}/{{ kernel_module }}
+    dest: /lib/modules/r1soft/{{ kernel_module }}

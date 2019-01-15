@@ -1,0 +1,3 @@
+---
+module_path: RHEL_7_x64
+kernel_module: hcpdriver-cki-3.10.0-957.el7.x86_64.ko
